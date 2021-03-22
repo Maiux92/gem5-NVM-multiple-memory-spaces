@@ -1,0 +1,30 @@
+diff --git a/gem5-20.1/src/sim/system.hh b/gem5-20.1/src/sim/system.hh
+index 7d77c48..667e059 100644
+--- a/gem5-20.1/src/sim/system.hh
++++ b/gem5-20.1/src/sim/system.hh
+@@ -42,6 +42,9 @@
+ #ifndef __SYSTEM_HH__
+ #define __SYSTEM_HH__
+ 
++#define NVM_START_ADDR 0x30000000
++#define NVM_END_ADDR 0x50000000
++
+ #include <string>
+ #include <unordered_map>
+ #include <utility>
+@@ -316,6 +319,7 @@ class System : public SimObject, public PCEventScope
+     bool remove(PCEvent *event) override;
+ 
+     Addr pagePtr;
++    Addr pageNVMPtr; // Project patch for NVM separate address space support
+ 
+     uint64_t init_param;
+ 
+@@ -589,6 +593,7 @@ class System : public SimObject, public PCEventScope
+     /// Allocate npages contiguous unused physical pages
+     /// @return Starting address of first page
+     Addr allocPhysPages(int npages);
++    Addr allocNVMPhysPages(int npages); // Project patch for NVM separate address space support
+ 
+     ContextID registerThreadContext(
+             ThreadContext *tc, ContextID assigned=InvalidContextID);

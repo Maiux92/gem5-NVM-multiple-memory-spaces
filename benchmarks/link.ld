@@ -1,0 +1,4 @@
+SECTIONS
+{
+    .NVM 0x30000000 : { KEEP(*(.NVM)) }
+}

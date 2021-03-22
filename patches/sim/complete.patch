@@ -1,0 +1,119 @@
+diff --git a/gem5-20.1/src/sim/process.cc b/gem5-20.1/src/sim/process.cc
+index 9cf52aa..c31141a 100644
+--- a/gem5-20.1/src/sim/process.cc
++++ b/gem5-20.1/src/sim/process.cc
+@@ -319,7 +319,18 @@ void
+ Process::allocateMem(Addr vaddr, int64_t size, bool clobber)
+ {
+     int npages = divCeil(size, (int64_t)system->getPageBytes());
+-    Addr paddr = system->allocPhysPages(npages);
++
++    // Project patch for NVM separate address space support
++    //Addr paddr = system->allocPhysPages(npages);
++    Addr paddr;
++
++    if(vaddr >= NVM_START_ADDR && vaddr <= NVM_END_ADDR) {
++        //paddr = vaddr;
++        paddr = system->allocNVMPhysPages(npages);
++    } else {
++        paddr = system->allocPhysPages(npages);
++    }
++
+     pTable->map(vaddr, paddr, size,
+                 clobber ? EmulationPageTable::Clobber :
+                           EmulationPageTable::MappingFlags(0));
+@@ -329,8 +340,17 @@ void
+ Process::replicatePage(Addr vaddr, Addr new_paddr, ThreadContext *old_tc,
+                        ThreadContext *new_tc, bool allocate_page)
+ {
+-    if (allocate_page)
+-        new_paddr = system->allocPhysPages(1);
++
++    // Project patch for NVM separate address space support
++    //if (allocate_page)
++    //    new_paddr = system->allocPhysPages(1);
++    if(allocate_page) {
++        if(vaddr >= NVM_START_ADDR && vaddr <= NVM_END_ADDR) {
++            new_paddr = system->allocNVMPhysPages(1);
++        } else {
++            new_paddr = system->allocPhysPages(1);
++        }
++    }
+ 
+     // Read from old physical page.
+     uint8_t *buf_p = new uint8_t[system->getPageBytes()];
+diff --git a/gem5-20.1/src/sim/system.cc b/gem5-20.1/src/sim/system.cc
+index cb412a8..71e1953 100644
+--- a/gem5-20.1/src/sim/system.cc
++++ b/gem5-20.1/src/sim/system.cc
+@@ -206,6 +206,7 @@ System::System(Params *p)
+     : SimObject(p), _systemPort("system_port", this),
+       multiThread(p->multi_thread),
+       pagePtr(0),
++      pageNVMPtr(0), // Project patch for NVM separate address space support
+       init_param(p->init_param),
+       physProxy(_systemPort, p->cache_line_size),
+       workload(p->workload),
+@@ -390,6 +391,14 @@ System::allocPhysPages(int npages)
+ 
+     Addr next_return_addr = pagePtr << PageShift;
+ 
++    // Project patch for NVM separate address space support
++    while((next_return_addr >= NVM_START_ADDR && next_return_addr <= NVM_END_ADDR) || (return_addr >= NVM_START_ADDR && return_addr <= NVM_END_ADDR)) {
++        return_addr = pagePtr << PageShift;
++        pagePtr += 1;
++        next_return_addr = pagePtr << PageShift;
++        cout << return_addr << " " <<  next_return_addr << "\n";
++    }
++
+     if (_m5opRange.contains(next_return_addr)) {
+         warn("Reached m5ops MMIO region\n");
+         return_addr = 0xffffffff;
+@@ -401,6 +410,17 @@ System::allocPhysPages(int npages)
+     return return_addr;
+ }
+ 
++// Project patch for NVM separate address space support
++Addr
++System::allocNVMPhysPages(int npages)
++{
++    Addr return_addr = pageNVMPtr << PageShift;
++    return_addr += NVM_START_ADDR;
++    pageNVMPtr += npages;
++
++    return return_addr;
++}
++
+ Addr
+ System::memSize() const
+ {
+diff --git a/gem5-20.1/src/sim/system.hh b/gem5-20.1/src/sim/system.hh
+index 7d77c48..667e059 100644
+--- a/gem5-20.1/src/sim/system.hh
++++ b/gem5-20.1/src/sim/system.hh
+@@ -42,6 +42,9 @@
+ #ifndef __SYSTEM_HH__
+ #define __SYSTEM_HH__
+ 
++#define NVM_START_ADDR 0x30000000
++#define NVM_END_ADDR 0x50000000
++
+ #include <string>
+ #include <unordered_map>
+ #include <utility>
+@@ -316,6 +319,7 @@ class System : public SimObject, public PCEventScope
+     bool remove(PCEvent *event) override;
+ 
+     Addr pagePtr;
++    Addr pageNVMPtr; // Project patch for NVM separate address space support
+ 
+     uint64_t init_param;
+ 
+@@ -589,6 +593,7 @@ class System : public SimObject, public PCEventScope
+     /// Allocate npages contiguous unused physical pages
+     /// @return Starting address of first page
+     Addr allocPhysPages(int npages);
++    Addr allocNVMPhysPages(int npages); // Project patch for NVM separate address space support
+ 
+     ContextID registerThreadContext(
+             ThreadContext *tc, ContextID assigned=InvalidContextID);

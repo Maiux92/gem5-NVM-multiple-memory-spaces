@@ -1,0 +1,44 @@
+diff --git a/src/sim/process.cc b/src/sim/process.cc
+index 9cf52aa..c31141a 100644
+--- a/src/sim/process.cc
++++ b/src/sim/process.cc
+@@ -319,7 +319,18 @@ void
+ Process::allocateMem(Addr vaddr, int64_t size, bool clobber)
+ {
+     int npages = divCeil(size, (int64_t)system->getPageBytes());
+-    Addr paddr = system->allocPhysPages(npages);
++
++    // Project patch for NVM separate address space support
++    //Addr paddr = system->allocPhysPages(npages);
++    Addr paddr;
++
++    if(vaddr >= NVM_START_ADDR && vaddr <= NVM_END_ADDR) {
++        //paddr = vaddr;
++        paddr = system->allocNVMPhysPages(npages);
++    } else {
++        paddr = system->allocPhysPages(npages);
++    }
++
+     pTable->map(vaddr, paddr, size,
+                 clobber ? EmulationPageTable::Clobber :
+                           EmulationPageTable::MappingFlags(0));
+@@ -329,8 +340,17 @@ void
+ Process::replicatePage(Addr vaddr, Addr new_paddr, ThreadContext *old_tc,
+                        ThreadContext *new_tc, bool allocate_page)
+ {
+-    if (allocate_page)
+-        new_paddr = system->allocPhysPages(1);
++
++    // Project patch for NVM separate address space support
++    //if (allocate_page)
++    //    new_paddr = system->allocPhysPages(1);
++    if(allocate_page) {
++        if(vaddr >= NVM_START_ADDR && vaddr <= NVM_END_ADDR) {
++            new_paddr = system->allocNVMPhysPages(1);
++        } else {
++            new_paddr = system->allocPhysPages(1);
++        }
++    }
+ 
+     // Read from old physical page.
+     uint8_t *buf_p = new uint8_t[system->getPageBytes()];

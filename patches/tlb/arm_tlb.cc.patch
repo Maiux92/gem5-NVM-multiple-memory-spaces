@@ -1,0 +1,17 @@
+diff --git a/src/arch/arm/tlb.cc b/src/arch/arm/tlb.cc
+index 413a13e..47cc74e 100644
+--- a/src/arch/arm/tlb.cc
++++ b/src/arch/arm/tlb.cc
+@@ -483,6 +483,12 @@ TLB::translateSe(const RequestPtr &req, ThreadContext *tc, Mode mode,
+         }
+     }
+ 
++    // Project patch for NVM separate address space support
++    if(vaddr >= 0x30000000 && vaddr <= 0x50000000) {
++        req->setPaddr(vaddr);
++        return NoFault;
++    }
++
+     Addr paddr;
+     Process *p = tc->getProcessPtr();
+ 

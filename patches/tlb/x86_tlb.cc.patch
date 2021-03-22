@@ -1,0 +1,18 @@
+diff --git a/src/arch/x86/tlb.cc b/src/arch/x86/tlb.cc
+index 11ce660..1cecc49 100644
+--- a/src/arch/x86/tlb.cc
++++ b/src/arch/x86/tlb.cc
+@@ -321,6 +321,13 @@ TLB::translate(const RequestPtr &req,
+     }
+ 
+     Addr vaddr = req->getVaddr();
++
++    // Project patch for NVM separate address space support
++    if(vaddr >= 0x30000000 && vaddr <= 0x50000000) {
++        req->setPaddr(vaddr);
++        return NoFault;
++    }
++
+     DPRINTF(TLB, "Translating vaddr %#x.\n", vaddr);
+ 
+     HandyM5Reg m5Reg = tc->readMiscRegNoEffect(MISCREG_M5_REG);

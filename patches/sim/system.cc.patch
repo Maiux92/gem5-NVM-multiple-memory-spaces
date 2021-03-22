@@ -1,0 +1,45 @@
+diff --git a/gem5-20.1/src/sim/system.cc b/gem5-20.1/src/sim/system.cc
+index cb412a8..71e1953 100644
+--- a/gem5-20.1/src/sim/system.cc
++++ b/gem5-20.1/src/sim/system.cc
+@@ -206,6 +206,7 @@ System::System(Params *p)
+     : SimObject(p), _systemPort("system_port", this),
+       multiThread(p->multi_thread),
+       pagePtr(0),
++      pageNVMPtr(0), // Project patch for NVM separate address space support
+       init_param(p->init_param),
+       physProxy(_systemPort, p->cache_line_size),
+       workload(p->workload),
+@@ -390,6 +391,14 @@ System::allocPhysPages(int npages)
+ 
+     Addr next_return_addr = pagePtr << PageShift;
+ 
++    // Project patch for NVM separate address space support
++    while((next_return_addr >= NVM_START_ADDR && next_return_addr <= NVM_END_ADDR) || (return_addr >= NVM_START_ADDR && return_addr <= NVM_END_ADDR)) {
++        return_addr = pagePtr << PageShift;
++        pagePtr += 1;
++        next_return_addr = pagePtr << PageShift;
++        cout << return_addr << " " <<  next_return_addr << "\n";
++    }
++
+     if (_m5opRange.contains(next_return_addr)) {
+         warn("Reached m5ops MMIO region\n");
+         return_addr = 0xffffffff;
+@@ -401,6 +410,17 @@ System::allocPhysPages(int npages)
+     return return_addr;
+ }
+ 
++// Project patch for NVM separate address space support
++Addr
++System::allocNVMPhysPages(int npages)
++{
++    Addr return_addr = pageNVMPtr << PageShift;
++    return_addr += NVM_START_ADDR;
++    pageNVMPtr += npages;
++
++    return return_addr;
++}
++
+ Addr
+ System::memSize() const
+ {

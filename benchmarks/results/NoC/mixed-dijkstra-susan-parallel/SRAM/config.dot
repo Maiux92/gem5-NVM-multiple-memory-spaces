@@ -1,0 +1,3526 @@
+digraph G {
+ranksep="1.3";
+subgraph cluster_root {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="root \n: Root";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\full_system&#61;false&#10;\sim_quantum&#61;0&#10;\time_sync_enable&#61;false&#10;\time_sync_period&#61;100000000000&#10;\time_sync_spin_threshold&#61;100000000";
+subgraph cluster_system {
+color="#000000";
+fillcolor="#e4e7eb";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="system \n: System";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="byte_order&#61;little&#10;\cache_line_size&#61;64&#10;\eventq_index&#61;0&#10;\exit_on_work_items&#61;false&#10;\init_param&#61;0&#10;\kvm_vm&#61;Null&#10;\m5ops_base&#61;4294901760&#10;\mem_mode&#61;timing&#10;\mem_ranges&#61;&#10;\memories&#61;system.noc_network.socket_controllers4.mem_ctrl.nvm system.noc_network.socket_controllers5.mem_ctrl.nvm&#10;\mmap_using_noreserve&#61;false&#10;\multi_thread&#61;false&#10;\num_work_ids&#61;16&#10;\readfile&#61;&#10;\redirect_paths&#61;&#10;\shared_backstore&#61;&#10;\symbolfile&#61;&#10;\thermal_components&#61;&#10;\thermal_model&#61;Null&#10;\work_begin_ckpt_count&#61;0&#10;\work_begin_cpu_id_exit&#61;-1&#10;\work_begin_exit_count&#61;0&#10;\work_cpus_ckpt_count&#61;0&#10;\work_end_ckpt_count&#61;0&#10;\work_end_exit_count&#61;0&#10;\work_item_id&#61;-1&#10;\workload&#61;Null";
+system_system_port [color="#000000", fillcolor="#b6b8bc", fontcolor="#000000", fontname=Arial, fontsize=14, label=system_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_dvfs_handler {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dvfs_handler \n: DVFSHandler";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="domains&#61;&#10;\enable&#61;false&#10;\eventq_index&#61;0&#10;\sys_clk_domain&#61;system.clk_domain&#10;\transition_latency&#61;100000000";
+}
+
+subgraph cluster_system_voltage_domain {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="voltage_domain \n: VoltageDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\voltage&#61;1.0";
+}
+
+subgraph cluster_system_clk_domain {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="clk_domain \n: SrcClockDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clock&#61;1000&#10;\domain_id&#61;-1&#10;\eventq_index&#61;0&#10;\init_perf_level&#61;0&#10;\voltage_domain&#61;system.voltage_domain";
+}
+
+subgraph cluster_system_cpu_voltage_domain {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cpu_voltage_domain \n: VoltageDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\voltage&#61;1.0";
+}
+
+subgraph cluster_system_cpu_clk_domain {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cpu_clk_domain \n: SrcClockDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clock&#61;1000&#10;\domain_id&#61;-1&#10;\eventq_index&#61;0&#10;\init_perf_level&#61;0&#10;\voltage_domain&#61;system.cpu_voltage_domain";
+}
+
+subgraph cluster_system_noc_network {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="noc_network \n: NoCSystem";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="access_backing_store&#61;false&#10;\all_instructions&#61;false&#10;\block_size_bytes&#61;64&#10;\clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\hot_lines&#61;false&#10;\memory_size_bits&#61;64&#10;\num_of_sequencers&#61;4&#10;\number_of_virtual_networks&#61;5&#10;\phys_mem&#61;Null&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.power_state&#10;\randomization&#61;false&#10;\system&#61;system";
+subgraph cluster_system_noc_network_power_state {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_network {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network \n: NoCNetwork";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffers_per_ctrl_vc&#61;1&#10;\buffers_per_data_vc&#61;4&#10;\clk_domain&#61;system.clk_domain&#10;\control_msg_size&#61;8&#10;\enable_fault_model&#61;false&#10;\eventq_index&#61;0&#10;\ext_links&#61;system.noc_network.network.ext_links0 system.noc_network.network.ext_links1 system.noc_network.network.ext_links2 system.noc_network.network.ext_links3 system.noc_network.network.ext_links4 system.noc_network.network.ext_links5&#10;\fault_model&#61;Null&#10;\garnet_deadlock_threshold&#61;50000&#10;\int_links&#61;system.noc_network.network.int_links00 system.noc_network.network.int_links01 system.noc_network.network.int_links02 system.noc_network.network.int_links03 system.noc_network.network.int_links04 system.noc_network.network.int_links05 system.noc_network.network.int_links06 system.noc_network.network.int_links07 system.noc_network.network.int_links08 system.noc_network.network.int_links09 system.noc_network.network.int_links10 system.noc_network.network.int_links11 system.noc_network.network.int_links12 system.noc_network.network.int_links13&#10;\netifs&#61;system.noc_network.network.netifs0 system.noc_network.network.netifs1 system.noc_network.network.netifs2 system.noc_network.network.netifs3 system.noc_network.network.netifs4 system.noc_network.network.netifs5&#10;\ni_flit_size&#61;16&#10;\num_rows&#61;3&#10;\number_of_virtual_networks&#61;5&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.power_state&#10;\routers&#61;system.noc_network.network.routers0 system.noc_network.network.routers1 system.noc_network.network.routers2 system.noc_network.network.routers3 system.noc_network.network.routers4 system.noc_network.network.routers5&#10;\routing_algorithm&#61;1&#10;\ruby_system&#61;system.noc_network&#10;\topology&#61;Not Specified&#10;\vcs_per_vnet&#61;4";
+system_noc_network_network_in_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+system_noc_network_network_out_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_network_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_network_routers0 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="routers0 \n: GarnetRouter";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.routers0.power_state&#10;\router_id&#61;0&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_routers0_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_routers1 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="routers1 \n: GarnetRouter";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.routers1.power_state&#10;\router_id&#61;1&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_routers1_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_routers2 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="routers2 \n: GarnetRouter";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.routers2.power_state&#10;\router_id&#61;2&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_routers2_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_routers3 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="routers3 \n: GarnetRouter";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.routers3.power_state&#10;\router_id&#61;3&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_routers3_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_routers4 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="routers4 \n: GarnetRouter";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.routers4.power_state&#10;\router_id&#61;4&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_routers4_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_routers5 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="routers5 \n: GarnetRouter";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.routers5.power_state&#10;\router_id&#61;5&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_routers5_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links0 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ext_links0 \n: GarnetExtLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_links&#61;system.noc_network.network.ext_links0.credit_links0 system.noc_network.network.ext_links0.credit_links1&#10;\eventq_index&#61;0&#10;\ext_cdc&#61;false&#10;\ext_cred_bridge&#61;&#10;\ext_net_bridge&#61;&#10;\ext_node&#61;system.noc_network.socket_controllers0&#10;\ext_serdes&#61;false&#10;\int_cdc&#61;false&#10;\int_cred_bridge&#61;&#10;\int_net_bridge&#61;&#10;\int_node&#61;system.noc_network.network.routers0&#10;\int_serdes&#61;false&#10;\latency&#61;1&#10;\link_id&#61;0&#10;\network_links&#61;system.noc_network.network.ext_links0.network_links0 system.noc_network.network.ext_links0.network_links1&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links0_network_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links0 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;0&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links0.network_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links0_network_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links0_network_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links1 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;0&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links0.network_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links0_network_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links0_credit_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links0 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;0&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links0.credit_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links0_credit_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links0_credit_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links1 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;0&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links0.credit_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links0_credit_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links1 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ext_links1 \n: GarnetExtLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_links&#61;system.noc_network.network.ext_links1.credit_links0 system.noc_network.network.ext_links1.credit_links1&#10;\eventq_index&#61;0&#10;\ext_cdc&#61;false&#10;\ext_cred_bridge&#61;&#10;\ext_net_bridge&#61;&#10;\ext_node&#61;system.noc_network.socket_controllers1&#10;\ext_serdes&#61;false&#10;\int_cdc&#61;false&#10;\int_cred_bridge&#61;&#10;\int_net_bridge&#61;&#10;\int_node&#61;system.noc_network.network.routers1&#10;\int_serdes&#61;false&#10;\latency&#61;1&#10;\link_id&#61;1&#10;\network_links&#61;system.noc_network.network.ext_links1.network_links0 system.noc_network.network.ext_links1.network_links1&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links1_network_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links0 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;1&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links1.network_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links1_network_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links1_network_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links1 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;1&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links1.network_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links1_network_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links1_credit_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links0 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;1&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links1.credit_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links1_credit_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links1_credit_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links1 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;1&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links1.credit_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links1_credit_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links2 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ext_links2 \n: GarnetExtLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_links&#61;system.noc_network.network.ext_links2.credit_links0 system.noc_network.network.ext_links2.credit_links1&#10;\eventq_index&#61;0&#10;\ext_cdc&#61;false&#10;\ext_cred_bridge&#61;&#10;\ext_net_bridge&#61;&#10;\ext_node&#61;system.noc_network.socket_controllers2&#10;\ext_serdes&#61;false&#10;\int_cdc&#61;false&#10;\int_cred_bridge&#61;&#10;\int_net_bridge&#61;&#10;\int_node&#61;system.noc_network.network.routers2&#10;\int_serdes&#61;false&#10;\latency&#61;1&#10;\link_id&#61;2&#10;\network_links&#61;system.noc_network.network.ext_links2.network_links0 system.noc_network.network.ext_links2.network_links1&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links2_network_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links0 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;2&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links2.network_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links2_network_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links2_network_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links1 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;2&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links2.network_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links2_network_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links2_credit_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links0 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;2&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links2.credit_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links2_credit_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links2_credit_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links1 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;2&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links2.credit_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links2_credit_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links3 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ext_links3 \n: GarnetExtLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_links&#61;system.noc_network.network.ext_links3.credit_links0 system.noc_network.network.ext_links3.credit_links1&#10;\eventq_index&#61;0&#10;\ext_cdc&#61;false&#10;\ext_cred_bridge&#61;&#10;\ext_net_bridge&#61;&#10;\ext_node&#61;system.noc_network.socket_controllers3&#10;\ext_serdes&#61;false&#10;\int_cdc&#61;false&#10;\int_cred_bridge&#61;&#10;\int_net_bridge&#61;&#10;\int_node&#61;system.noc_network.network.routers3&#10;\int_serdes&#61;false&#10;\latency&#61;1&#10;\link_id&#61;3&#10;\network_links&#61;system.noc_network.network.ext_links3.network_links0 system.noc_network.network.ext_links3.network_links1&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links3_network_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links0 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;3&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links3.network_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links3_network_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links3_network_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links1 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;3&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links3.network_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links3_network_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links3_credit_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links0 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;3&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links3.credit_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links3_credit_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links3_credit_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links1 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;3&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links3.credit_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links3_credit_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links4 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ext_links4 \n: GarnetExtLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_links&#61;system.noc_network.network.ext_links4.credit_links0 system.noc_network.network.ext_links4.credit_links1&#10;\eventq_index&#61;0&#10;\ext_cdc&#61;false&#10;\ext_cred_bridge&#61;&#10;\ext_net_bridge&#61;&#10;\ext_node&#61;system.noc_network.socket_controllers4&#10;\ext_serdes&#61;false&#10;\int_cdc&#61;false&#10;\int_cred_bridge&#61;&#10;\int_net_bridge&#61;&#10;\int_node&#61;system.noc_network.network.routers4&#10;\int_serdes&#61;false&#10;\latency&#61;1&#10;\link_id&#61;4&#10;\network_links&#61;system.noc_network.network.ext_links4.network_links0 system.noc_network.network.ext_links4.network_links1&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links4_network_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links0 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;4&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links4.network_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links4_network_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links4_network_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links1 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;4&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links4.network_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links4_network_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links4_credit_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links0 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;4&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links4.credit_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links4_credit_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links4_credit_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links1 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;4&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links4.credit_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links4_credit_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links5 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ext_links5 \n: GarnetExtLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_links&#61;system.noc_network.network.ext_links5.credit_links0 system.noc_network.network.ext_links5.credit_links1&#10;\eventq_index&#61;0&#10;\ext_cdc&#61;false&#10;\ext_cred_bridge&#61;&#10;\ext_net_bridge&#61;&#10;\ext_node&#61;system.noc_network.socket_controllers5&#10;\ext_serdes&#61;false&#10;\int_cdc&#61;false&#10;\int_cred_bridge&#61;&#10;\int_net_bridge&#61;&#10;\int_node&#61;system.noc_network.network.routers5&#10;\int_serdes&#61;false&#10;\latency&#61;1&#10;\link_id&#61;5&#10;\network_links&#61;system.noc_network.network.ext_links5.network_links0 system.noc_network.network.ext_links5.network_links1&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links5_network_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links0 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;5&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links5.network_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links5_network_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links5_network_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_links1 \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;5&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links5.network_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links5_network_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links5_credit_links0 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links0 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;5&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links5.credit_links0.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links5_credit_links0_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_ext_links5_credit_links1 {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_links1 \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;5&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.ext_links5.credit_links1.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_ext_links5_credit_links1_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links00 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links00 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links00.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;West&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers1&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;6&#10;\network_link&#61;system.noc_network.network.int_links00.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers0&#10;\src_outport&#61;East&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links00_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;6&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links00.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links00_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links00_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;6&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links00.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links00_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links01 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links01 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links01.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;West&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers3&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;7&#10;\network_link&#61;system.noc_network.network.int_links01.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers2&#10;\src_outport&#61;East&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links01_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;7&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links01.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links01_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links01_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;7&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links01.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links01_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links02 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links02 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links02.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;West&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers5&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;8&#10;\network_link&#61;system.noc_network.network.int_links02.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers4&#10;\src_outport&#61;East&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links02_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;8&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links02.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links02_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links02_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;8&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links02.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links02_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links03 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links03 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links03.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;East&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers0&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;9&#10;\network_link&#61;system.noc_network.network.int_links03.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers1&#10;\src_outport&#61;West&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links03_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;9&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links03.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links03_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links03_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;9&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links03.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links03_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links04 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links04 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links04.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;East&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers2&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;10&#10;\network_link&#61;system.noc_network.network.int_links04.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers3&#10;\src_outport&#61;West&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links04_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;10&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links04.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links04_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links04_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;10&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links04.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links04_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links05 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links05 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links05.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;East&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers4&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;11&#10;\network_link&#61;system.noc_network.network.int_links05.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers5&#10;\src_outport&#61;West&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;1&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links05_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;11&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links05.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links05_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links05_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;11&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links05.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links05_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links06 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links06 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links06.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;South&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers2&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;12&#10;\network_link&#61;system.noc_network.network.int_links06.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers0&#10;\src_outport&#61;North&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links06_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;12&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links06.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links06_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links06_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;12&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links06.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links06_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links07 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links07 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links07.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;South&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers4&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;13&#10;\network_link&#61;system.noc_network.network.int_links07.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers2&#10;\src_outport&#61;North&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links07_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;13&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links07.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links07_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links07_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;13&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links07.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links07_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links08 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links08 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links08.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;South&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers3&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;14&#10;\network_link&#61;system.noc_network.network.int_links08.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers1&#10;\src_outport&#61;North&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links08_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;14&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links08.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links08_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links08_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;14&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links08.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links08_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links09 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links09 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links09.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;South&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers5&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;15&#10;\network_link&#61;system.noc_network.network.int_links09.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers3&#10;\src_outport&#61;North&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links09_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;15&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links09.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links09_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links09_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;15&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links09.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links09_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links10 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links10 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links10.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;North&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers0&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;16&#10;\network_link&#61;system.noc_network.network.int_links10.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers2&#10;\src_outport&#61;South&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links10_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;16&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links10.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links10_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links10_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;16&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links10.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links10_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links11 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links11 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links11.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;North&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers2&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;17&#10;\network_link&#61;system.noc_network.network.int_links11.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers4&#10;\src_outport&#61;South&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links11_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;17&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links11.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links11_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links11_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;17&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links11.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links11_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links12 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links12 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links12.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;North&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers1&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;18&#10;\network_link&#61;system.noc_network.network.int_links12.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers3&#10;\src_outport&#61;South&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links12_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;18&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links12.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links12_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links12_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;18&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links12.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links12_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links13 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="int_links13 \n: GarnetIntLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="bandwidth_factor&#61;16&#10;\credit_link&#61;system.noc_network.network.int_links13.credit_link&#10;\dst_cdc&#61;false&#10;\dst_cred_bridge&#61;Null&#10;\dst_inport&#61;North&#10;\dst_net_bridge&#61;Null&#10;\dst_node&#61;system.noc_network.network.routers3&#10;\dst_serdes&#61;false&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\link_id&#61;19&#10;\network_link&#61;system.noc_network.network.int_links13.network_link&#10;\src_cdc&#61;false&#10;\src_cred_bridge&#61;Null&#10;\src_net_bridge&#61;Null&#10;\src_node&#61;system.noc_network.network.routers5&#10;\src_outport&#61;South&#10;\src_serdes&#61;false&#10;\supported_vnets&#61;&#10;\weight&#61;2&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links13_network_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="network_link \n: NetworkLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;19&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links13.network_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links13_network_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_int_links13_credit_link {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="credit_link \n: CreditLink";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\link_id&#61;19&#10;\link_latency&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.int_links13.credit_link.power_state&#10;\supported_vnets&#61;&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5&#10;\width&#61;16";
+subgraph cluster_system_noc_network_network_int_links13_credit_link_power_state {
+color="#000000";
+fillcolor="#4f4e4a";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_network_netifs0 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="netifs0 \n: GarnetNetworkInterface";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\garnet_deadlock_threshold&#61;50000&#10;\id&#61;0&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.netifs0.power_state&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5";
+subgraph cluster_system_noc_network_network_netifs0_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_netifs1 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="netifs1 \n: GarnetNetworkInterface";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\garnet_deadlock_threshold&#61;50000&#10;\id&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.netifs1.power_state&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5";
+subgraph cluster_system_noc_network_network_netifs1_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_netifs2 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="netifs2 \n: GarnetNetworkInterface";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\garnet_deadlock_threshold&#61;50000&#10;\id&#61;2&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.netifs2.power_state&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5";
+subgraph cluster_system_noc_network_network_netifs2_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_netifs3 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="netifs3 \n: GarnetNetworkInterface";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\garnet_deadlock_threshold&#61;50000&#10;\id&#61;3&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.netifs3.power_state&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5";
+subgraph cluster_system_noc_network_network_netifs3_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_netifs4 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="netifs4 \n: GarnetNetworkInterface";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\garnet_deadlock_threshold&#61;50000&#10;\id&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.netifs4.power_state&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5";
+subgraph cluster_system_noc_network_network_netifs4_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_noc_network_network_netifs5 {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="netifs5 \n: GarnetNetworkInterface";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\garnet_deadlock_threshold&#61;50000&#10;\id&#61;5&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.network.netifs5.power_state&#10;\vcs_per_vnet&#61;4&#10;\virt_nets&#61;5";
+subgraph cluster_system_noc_network_network_netifs5_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers0 {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="socket_controllers0 \n: L1Cache_Controller";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;0:18446744073709551615&#10;\buffer_size&#61;0&#10;\cacheMemory&#61;system.noc_network.socket_controllers0.cacheMemory&#10;\cache_response_latency&#61;12&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cluster_id&#61;0&#10;\eventq_index&#61;0&#10;\forwardToCache&#61;system.noc_network.socket_controllers0.forwardToCache&#10;\issue_latency&#61;2&#10;\mandatoryQueue&#61;system.noc_network.socket_controllers0.mandatoryQueue&#10;\mandatory_queue_latency&#61;1&#10;\number_of_TBEs&#61;256&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers0.power_state&#10;\recycle_latency&#61;10&#10;\requestFromCache&#61;system.noc_network.socket_controllers0.requestFromCache&#10;\responseFromCache&#61;system.noc_network.socket_controllers0.responseFromCache&#10;\responseToCache&#61;system.noc_network.socket_controllers0.responseToCache&#10;\ruby_system&#61;system.noc_network&#10;\send_evictions&#61;true&#10;\sequencer&#61;system.noc_network.socket_controllers0.sequencer&#10;\system&#61;system&#10;\transitions_per_cycle&#61;32&#10;\version&#61;0";
+subgraph cluster_system_noc_network_socket_controllers0_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_cacheMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cacheMemory \n: RubyCache";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="assoc&#61;8&#10;\block_size&#61;0&#10;\dataAccessLatency&#61;1&#10;\dataArrayBanks&#61;1&#10;\eventq_index&#61;0&#10;\is_icache&#61;false&#10;\replacement_policy&#61;system.noc_network.socket_controllers0.cacheMemory.replacement_policy&#10;\resourceStalls&#61;false&#10;\ruby_system&#61;system.noc_network&#10;\size&#61;16384&#10;\start_index_bit&#61;6&#10;\tagAccessLatency&#61;1&#10;\tagArrayBanks&#61;1";
+subgraph cluster_system_noc_network_socket_controllers0_cacheMemory_replacement_policy {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="replacement_policy \n: TreePLRURP";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\num_leaves&#61;8";
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_mandatoryQueue {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="mandatoryQueue \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_requestFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers0_requestFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_responseFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers0_responseFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_forwardToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="forwardToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers0_forwardToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_responseToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers0_responseToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers0_sequencer {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="sequencer \n: RubySequencer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\coreid&#61;99&#10;\dcache&#61;system.noc_network.socket_controllers0.cacheMemory&#10;\deadlock_threshold&#61;500000&#10;\eventq_index&#61;0&#10;\garnet_standalone&#61;false&#10;\icache&#61;system.noc_network.socket_controllers0.cacheMemory&#10;\is_cpu_sequencer&#61;true&#10;\max_outstanding_requests&#61;16&#10;\no_retry_on_stall&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers0.sequencer.power_state&#10;\ruby_system&#61;system.noc_network&#10;\support_data_reqs&#61;true&#10;\support_inst_reqs&#61;true&#10;\system&#61;system&#10;\using_ruby_tester&#61;false&#10;\version&#61;0";
+system_noc_network_socket_controllers0_sequencer_in_ports [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_ports, shape=Mrecord, style="rounded, filled"];
+system_noc_network_socket_controllers0_sequencer_interrupt_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=interrupt_out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers0_sequencer_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers1 {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="socket_controllers1 \n: L1Cache_Controller";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;0:18446744073709551615&#10;\buffer_size&#61;0&#10;\cacheMemory&#61;system.noc_network.socket_controllers1.cacheMemory&#10;\cache_response_latency&#61;12&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cluster_id&#61;0&#10;\eventq_index&#61;0&#10;\forwardToCache&#61;system.noc_network.socket_controllers1.forwardToCache&#10;\issue_latency&#61;2&#10;\mandatoryQueue&#61;system.noc_network.socket_controllers1.mandatoryQueue&#10;\mandatory_queue_latency&#61;1&#10;\number_of_TBEs&#61;256&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers1.power_state&#10;\recycle_latency&#61;10&#10;\requestFromCache&#61;system.noc_network.socket_controllers1.requestFromCache&#10;\responseFromCache&#61;system.noc_network.socket_controllers1.responseFromCache&#10;\responseToCache&#61;system.noc_network.socket_controllers1.responseToCache&#10;\ruby_system&#61;system.noc_network&#10;\send_evictions&#61;true&#10;\sequencer&#61;system.noc_network.socket_controllers1.sequencer&#10;\system&#61;system&#10;\transitions_per_cycle&#61;32&#10;\version&#61;1";
+subgraph cluster_system_noc_network_socket_controllers1_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_cacheMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cacheMemory \n: RubyCache";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="assoc&#61;8&#10;\block_size&#61;0&#10;\dataAccessLatency&#61;1&#10;\dataArrayBanks&#61;1&#10;\eventq_index&#61;0&#10;\is_icache&#61;false&#10;\replacement_policy&#61;system.noc_network.socket_controllers1.cacheMemory.replacement_policy&#10;\resourceStalls&#61;false&#10;\ruby_system&#61;system.noc_network&#10;\size&#61;16384&#10;\start_index_bit&#61;6&#10;\tagAccessLatency&#61;1&#10;\tagArrayBanks&#61;1";
+subgraph cluster_system_noc_network_socket_controllers1_cacheMemory_replacement_policy {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="replacement_policy \n: TreePLRURP";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\num_leaves&#61;8";
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_mandatoryQueue {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="mandatoryQueue \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_requestFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers1_requestFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_responseFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers1_responseFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_forwardToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="forwardToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers1_forwardToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_responseToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers1_responseToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers1_sequencer {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="sequencer \n: RubySequencer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\coreid&#61;99&#10;\dcache&#61;system.noc_network.socket_controllers1.cacheMemory&#10;\deadlock_threshold&#61;500000&#10;\eventq_index&#61;0&#10;\garnet_standalone&#61;false&#10;\icache&#61;system.noc_network.socket_controllers1.cacheMemory&#10;\is_cpu_sequencer&#61;true&#10;\max_outstanding_requests&#61;16&#10;\no_retry_on_stall&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers1.sequencer.power_state&#10;\ruby_system&#61;system.noc_network&#10;\support_data_reqs&#61;true&#10;\support_inst_reqs&#61;true&#10;\system&#61;system&#10;\using_ruby_tester&#61;false&#10;\version&#61;1";
+system_noc_network_socket_controllers1_sequencer_in_ports [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_ports, shape=Mrecord, style="rounded, filled"];
+system_noc_network_socket_controllers1_sequencer_interrupt_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=interrupt_out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers1_sequencer_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers2 {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="socket_controllers2 \n: L1Cache_Controller";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;0:18446744073709551615&#10;\buffer_size&#61;0&#10;\cacheMemory&#61;system.noc_network.socket_controllers2.cacheMemory&#10;\cache_response_latency&#61;12&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cluster_id&#61;0&#10;\eventq_index&#61;0&#10;\forwardToCache&#61;system.noc_network.socket_controllers2.forwardToCache&#10;\issue_latency&#61;2&#10;\mandatoryQueue&#61;system.noc_network.socket_controllers2.mandatoryQueue&#10;\mandatory_queue_latency&#61;1&#10;\number_of_TBEs&#61;256&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers2.power_state&#10;\recycle_latency&#61;10&#10;\requestFromCache&#61;system.noc_network.socket_controllers2.requestFromCache&#10;\responseFromCache&#61;system.noc_network.socket_controllers2.responseFromCache&#10;\responseToCache&#61;system.noc_network.socket_controllers2.responseToCache&#10;\ruby_system&#61;system.noc_network&#10;\send_evictions&#61;true&#10;\sequencer&#61;system.noc_network.socket_controllers2.sequencer&#10;\system&#61;system&#10;\transitions_per_cycle&#61;32&#10;\version&#61;2";
+subgraph cluster_system_noc_network_socket_controllers2_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_cacheMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cacheMemory \n: RubyCache";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="assoc&#61;8&#10;\block_size&#61;0&#10;\dataAccessLatency&#61;1&#10;\dataArrayBanks&#61;1&#10;\eventq_index&#61;0&#10;\is_icache&#61;false&#10;\replacement_policy&#61;system.noc_network.socket_controllers2.cacheMemory.replacement_policy&#10;\resourceStalls&#61;false&#10;\ruby_system&#61;system.noc_network&#10;\size&#61;16384&#10;\start_index_bit&#61;6&#10;\tagAccessLatency&#61;1&#10;\tagArrayBanks&#61;1";
+subgraph cluster_system_noc_network_socket_controllers2_cacheMemory_replacement_policy {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="replacement_policy \n: TreePLRURP";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\num_leaves&#61;8";
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_mandatoryQueue {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="mandatoryQueue \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_requestFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers2_requestFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_responseFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers2_responseFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_forwardToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="forwardToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers2_forwardToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_responseToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers2_responseToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers2_sequencer {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="sequencer \n: RubySequencer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\coreid&#61;99&#10;\dcache&#61;system.noc_network.socket_controllers2.cacheMemory&#10;\deadlock_threshold&#61;500000&#10;\eventq_index&#61;0&#10;\garnet_standalone&#61;false&#10;\icache&#61;system.noc_network.socket_controllers2.cacheMemory&#10;\is_cpu_sequencer&#61;true&#10;\max_outstanding_requests&#61;16&#10;\no_retry_on_stall&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers2.sequencer.power_state&#10;\ruby_system&#61;system.noc_network&#10;\support_data_reqs&#61;true&#10;\support_inst_reqs&#61;true&#10;\system&#61;system&#10;\using_ruby_tester&#61;false&#10;\version&#61;2";
+system_noc_network_socket_controllers2_sequencer_in_ports [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_ports, shape=Mrecord, style="rounded, filled"];
+system_noc_network_socket_controllers2_sequencer_interrupt_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=interrupt_out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers2_sequencer_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers3 {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="socket_controllers3 \n: L1Cache_Controller";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;0:18446744073709551615&#10;\buffer_size&#61;0&#10;\cacheMemory&#61;system.noc_network.socket_controllers3.cacheMemory&#10;\cache_response_latency&#61;12&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cluster_id&#61;0&#10;\eventq_index&#61;0&#10;\forwardToCache&#61;system.noc_network.socket_controllers3.forwardToCache&#10;\issue_latency&#61;2&#10;\mandatoryQueue&#61;system.noc_network.socket_controllers3.mandatoryQueue&#10;\mandatory_queue_latency&#61;1&#10;\number_of_TBEs&#61;256&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers3.power_state&#10;\recycle_latency&#61;10&#10;\requestFromCache&#61;system.noc_network.socket_controllers3.requestFromCache&#10;\responseFromCache&#61;system.noc_network.socket_controllers3.responseFromCache&#10;\responseToCache&#61;system.noc_network.socket_controllers3.responseToCache&#10;\ruby_system&#61;system.noc_network&#10;\send_evictions&#61;true&#10;\sequencer&#61;system.noc_network.socket_controllers3.sequencer&#10;\system&#61;system&#10;\transitions_per_cycle&#61;32&#10;\version&#61;3";
+subgraph cluster_system_noc_network_socket_controllers3_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_cacheMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cacheMemory \n: RubyCache";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="assoc&#61;8&#10;\block_size&#61;0&#10;\dataAccessLatency&#61;1&#10;\dataArrayBanks&#61;1&#10;\eventq_index&#61;0&#10;\is_icache&#61;false&#10;\replacement_policy&#61;system.noc_network.socket_controllers3.cacheMemory.replacement_policy&#10;\resourceStalls&#61;false&#10;\ruby_system&#61;system.noc_network&#10;\size&#61;16384&#10;\start_index_bit&#61;6&#10;\tagAccessLatency&#61;1&#10;\tagArrayBanks&#61;1";
+subgraph cluster_system_noc_network_socket_controllers3_cacheMemory_replacement_policy {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="replacement_policy \n: TreePLRURP";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\num_leaves&#61;8";
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_mandatoryQueue {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="mandatoryQueue \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_requestFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers3_requestFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_responseFromCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers3_responseFromCache_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_forwardToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="forwardToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers3_forwardToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_responseToCache {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseToCache \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers3_responseToCache_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers3_sequencer {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="sequencer \n: RubySequencer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\coreid&#61;99&#10;\dcache&#61;system.noc_network.socket_controllers3.cacheMemory&#10;\deadlock_threshold&#61;500000&#10;\eventq_index&#61;0&#10;\garnet_standalone&#61;false&#10;\icache&#61;system.noc_network.socket_controllers3.cacheMemory&#10;\is_cpu_sequencer&#61;true&#10;\max_outstanding_requests&#61;16&#10;\no_retry_on_stall&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers3.sequencer.power_state&#10;\ruby_system&#61;system.noc_network&#10;\support_data_reqs&#61;true&#10;\support_inst_reqs&#61;true&#10;\system&#61;system&#10;\using_ruby_tester&#61;false&#10;\version&#61;3";
+system_noc_network_socket_controllers3_sequencer_in_ports [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_ports, shape=Mrecord, style="rounded, filled"];
+system_noc_network_socket_controllers3_sequencer_interrupt_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=interrupt_out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers3_sequencer_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers4 {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="socket_controllers4 \n: Directory_Controller";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;805306368:1342177280&#10;\buffer_size&#61;0&#10;\clk_domain&#61;system.clk_domain&#10;\cluster_id&#61;0&#10;\directory&#61;system.noc_network.socket_controllers4.directory&#10;\directory_latency&#61;12&#10;\dmaRequestToDir&#61;system.noc_network.socket_controllers4.dmaRequestToDir&#10;\dmaResponseFromDir&#61;system.noc_network.socket_controllers4.dmaResponseFromDir&#10;\eventq_index&#61;0&#10;\forwardFromDir&#61;system.noc_network.socket_controllers4.forwardFromDir&#10;\mandatory_queue_latency&#61;1&#10;\number_of_TBEs&#61;256&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers4.power_state&#10;\recycle_latency&#61;10&#10;\requestToDir&#61;system.noc_network.socket_controllers4.requestToDir&#10;\requestToMemory&#61;system.noc_network.socket_controllers4.requestToMemory&#10;\responseFromDir&#61;system.noc_network.socket_controllers4.responseFromDir&#10;\responseFromMemory&#61;system.noc_network.socket_controllers4.responseFromMemory&#10;\ruby_system&#61;system.noc_network&#10;\system&#61;system&#10;\to_memory_controller_latency&#61;1&#10;\transitions_per_cycle&#61;32&#10;\version&#61;0";
+system_noc_network_socket_controllers4_memory_out_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=memory_out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers4_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_mem_ctrl {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="mem_ctrl \n: MemCtrl";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\command_window&#61;10000&#10;\dram&#61;Null&#10;\eventq_index&#61;0&#10;\mem_sched_policy&#61;frfcfs&#10;\min_writes_per_switch&#61;16&#10;\nvm&#61;system.noc_network.socket_controllers4.mem_ctrl.nvm&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers4.mem_ctrl.power_state&#10;\qos_policy&#61;Null&#10;\qos_priorities&#61;1&#10;\qos_priority_escalation&#61;false&#10;\qos_q_policy&#61;fifo&#10;\qos_requestors&#61;               &#10;\qos_syncro_scheduler&#61;false&#10;\qos_turnaround_policy&#61;Null&#10;\static_backend_latency&#61;10000&#10;\static_frontend_latency&#61;10000&#10;\system&#61;system&#10;\write_high_thresh_perc&#61;85&#10;\write_low_thresh_perc&#61;50";
+system_noc_network_socket_controllers4_mem_ctrl_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers4_mem_ctrl_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_mem_ctrl_nvm {
+color="#000000";
+fillcolor="#5e5958";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="nvm \n: SRAM";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_mapping&#61;RoRaBaCoCh&#10;\banks_per_rank&#61;16&#10;\burst_length&#61;8&#10;\clk_domain&#61;system.clk_domain&#10;\conf_table_reported&#61;true&#10;\device_bus_width&#61;64&#10;\device_rowbuffer_size&#61;256&#10;\device_size&#61;549755813888&#10;\devices_per_rank&#61;1&#10;\eventq_index&#61;0&#10;\image_file&#61;&#10;\in_addr_map&#61;true&#10;\kvm_map&#61;true&#10;\max_pending_reads&#61;64&#10;\max_pending_writes&#61;128&#10;\null&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers4.mem_ctrl.nvm.power_state&#10;\range&#61;805306368:1342177280&#10;\ranks_per_channel&#61;1&#10;\read_buffer_size&#61;64&#10;\tBURST&#61;3332&#10;\tCK&#61;833&#10;\tCS&#61;1666&#10;\tREAD&#61;1230&#10;\tRTW&#61;1666&#10;\tSEND&#61;14160&#10;\tWRITE&#61;1210&#10;\tWTR&#61;1666&#10;\two_cycle_rdwr&#61;true&#10;\write_buffer_size&#61;128";
+subgraph cluster_system_noc_network_socket_controllers4_mem_ctrl_nvm_power_state {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_directory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="directory \n: RubyDirectoryMemory";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;805306368:1342177280&#10;\eventq_index&#61;0";
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_requestToDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestToDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers4_requestToDir_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_responseFromDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+system_noc_network_socket_controllers4_responseFromDir_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_forwardFromDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="forwardFromDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+system_noc_network_socket_controllers4_forwardFromDir_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_requestToMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestToMemory \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_responseFromMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromMemory \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_dmaRequestToDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dmaRequestToDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers4_dmaRequestToDir_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers4_dmaResponseFromDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dmaResponseFromDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers4_dmaResponseFromDir_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers5 {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="socket_controllers5 \n: Directory_Controller";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;0:536870912&#10;\buffer_size&#61;0&#10;\clk_domain&#61;system.clk_domain&#10;\cluster_id&#61;0&#10;\directory&#61;system.noc_network.socket_controllers5.directory&#10;\directory_latency&#61;12&#10;\dmaRequestToDir&#61;system.noc_network.socket_controllers5.dmaRequestToDir&#10;\dmaResponseFromDir&#61;system.noc_network.socket_controllers5.dmaResponseFromDir&#10;\eventq_index&#61;0&#10;\forwardFromDir&#61;system.noc_network.socket_controllers5.forwardFromDir&#10;\mandatory_queue_latency&#61;1&#10;\number_of_TBEs&#61;256&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers5.power_state&#10;\recycle_latency&#61;10&#10;\requestToDir&#61;system.noc_network.socket_controllers5.requestToDir&#10;\requestToMemory&#61;system.noc_network.socket_controllers5.requestToMemory&#10;\responseFromDir&#61;system.noc_network.socket_controllers5.responseFromDir&#10;\responseFromMemory&#61;system.noc_network.socket_controllers5.responseFromMemory&#10;\ruby_system&#61;system.noc_network&#10;\system&#61;system&#10;\to_memory_controller_latency&#61;1&#10;\transitions_per_cycle&#61;32&#10;\version&#61;1";
+system_noc_network_socket_controllers5_memory_out_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=memory_out_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers5_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_mem_ctrl {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="mem_ctrl \n: MemCtrl";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\command_window&#61;10000&#10;\dram&#61;Null&#10;\eventq_index&#61;0&#10;\mem_sched_policy&#61;frfcfs&#10;\min_writes_per_switch&#61;16&#10;\nvm&#61;system.noc_network.socket_controllers5.mem_ctrl.nvm&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers5.mem_ctrl.power_state&#10;\qos_policy&#61;Null&#10;\qos_priorities&#61;1&#10;\qos_priority_escalation&#61;false&#10;\qos_q_policy&#61;fifo&#10;\qos_requestors&#61;               &#10;\qos_syncro_scheduler&#61;false&#10;\qos_turnaround_policy&#61;Null&#10;\static_backend_latency&#61;10000&#10;\static_frontend_latency&#61;10000&#10;\system&#61;system&#10;\write_high_thresh_perc&#61;85&#10;\write_low_thresh_perc&#61;50";
+system_noc_network_socket_controllers5_mem_ctrl_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_socket_controllers5_mem_ctrl_power_state {
+color="#000000";
+fillcolor="#6a6863";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_mem_ctrl_nvm {
+color="#000000";
+fillcolor="#5e5958";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="nvm \n: SRAM";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_mapping&#61;RoRaBaCoCh&#10;\banks_per_rank&#61;16&#10;\burst_length&#61;8&#10;\clk_domain&#61;system.clk_domain&#10;\conf_table_reported&#61;true&#10;\device_bus_width&#61;64&#10;\device_rowbuffer_size&#61;256&#10;\device_size&#61;549755813888&#10;\devices_per_rank&#61;1&#10;\eventq_index&#61;0&#10;\image_file&#61;&#10;\in_addr_map&#61;true&#10;\kvm_map&#61;true&#10;\max_pending_reads&#61;64&#10;\max_pending_writes&#61;128&#10;\null&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.socket_controllers5.mem_ctrl.nvm.power_state&#10;\range&#61;0:536870912&#10;\ranks_per_channel&#61;1&#10;\read_buffer_size&#61;64&#10;\tBURST&#61;3332&#10;\tCK&#61;833&#10;\tCS&#61;1666&#10;\tREAD&#61;1230&#10;\tRTW&#61;1666&#10;\tSEND&#61;14160&#10;\tWRITE&#61;1210&#10;\tWTR&#61;1666&#10;\two_cycle_rdwr&#61;true&#10;\write_buffer_size&#61;128";
+subgraph cluster_system_noc_network_socket_controllers5_mem_ctrl_nvm_power_state {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_directory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="directory \n: RubyDirectoryMemory";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="addr_ranges&#61;0:536870912&#10;\eventq_index&#61;0";
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_requestToDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestToDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers5_requestToDir_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_responseFromDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+system_noc_network_socket_controllers5_responseFromDir_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_forwardFromDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="forwardFromDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+system_noc_network_socket_controllers5_forwardFromDir_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_requestToMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="requestToMemory \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_responseFromMemory {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="responseFromMemory \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;false&#10;\randomization&#61;false";
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_dmaRequestToDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dmaRequestToDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers5_dmaRequestToDir_out_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=out_port, shape=Mrecord, style="rounded, filled"];
+}
+
+subgraph cluster_system_noc_network_socket_controllers5_dmaResponseFromDir {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dmaResponseFromDir \n: MessageBuffer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="buffer_size&#61;0&#10;\eventq_index&#61;0&#10;\ordered&#61;true&#10;\randomization&#61;false";
+system_noc_network_socket_controllers5_dmaResponseFromDir_in_port [color="#000000", fillcolor="#6a6863", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_port, shape=Mrecord, style="rounded, filled"];
+}
+
+}
+
+subgraph cluster_system_noc_network_sys_port_proxy {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="sys_port_proxy \n: RubyPortProxy";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.clk_domain&#10;\eventq_index&#61;0&#10;\is_cpu_sequencer&#61;true&#10;\no_retry_on_stall&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.noc_network.sys_port_proxy.power_state&#10;\ruby_system&#61;system.noc_network&#10;\support_data_reqs&#61;true&#10;\support_inst_reqs&#61;true&#10;\system&#61;system&#10;\using_ruby_tester&#61;false&#10;\version&#61;0";
+system_noc_network_sys_port_proxy_in_ports [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=in_ports, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_noc_network_sys_port_proxy_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu0 {
+color="#000000";
+fillcolor="#bbc6d9";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cpu0 \n: TimingSimpleCPU";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="branchPred&#61;Null&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cpu_id&#61;-1&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\dtb&#61;system.cpu0.dtb&#10;\eventq_index&#61;0&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\interrupts&#61;system.cpu0.interrupts&#10;\isa&#61;system.cpu0.isa&#10;\itb&#61;system.cpu0.itb&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;0&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.cpu0.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\simpoint_start_insts&#61;&#10;\socket_id&#61;0&#10;\switched_out&#61;false&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.cpu0.tracer&#10;\wait_for_remote_gdb&#61;false&#10;\workload&#61;system.cpu0.workload";
+system_cpu0_icache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=icache_port, shape=Mrecord, style="rounded, filled"];
+system_cpu0_dcache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=dcache_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu0_dtb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dtb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu0.dtb.walker";
+subgraph cluster_system_cpu0_dtb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu0.dtb.walker.power_state&#10;\system&#61;system";
+system_cpu0_dtb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu0_dtb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu0_itb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="itb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu0.itb.walker";
+subgraph cluster_system_cpu0_itb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu0.itb.walker.power_state&#10;\system&#61;system";
+system_cpu0_itb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu0_itb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu0_tracer {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="tracer \n: ExeTracer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+subgraph cluster_system_cpu0_power_state {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;ON CLK_GATED OFF";
+}
+
+subgraph cluster_system_cpu0_interrupts {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="interrupts \n: X86LocalApic";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu0.interrupts.clk_domain&#10;\eventq_index&#61;0&#10;\int_latency&#61;1000&#10;\pio_latency&#61;100000&#10;\system&#61;system";
+system_cpu0_interrupts_int_requestor [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_requestor, shape=Mrecord, style="rounded, filled"];
+system_cpu0_interrupts_int_responder [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_responder, shape=Mrecord, style="rounded, filled"];
+system_cpu0_interrupts_pio [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=pio, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu0_interrupts_clk_domain {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="clk_domain \n: DerivedClockDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_divider&#61;16&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu0_workload {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="workload \n: Process";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="cmd&#61;../benchmarks/dijkstra/dijkstra&#10;\cwd&#61;/home/gem5/Desktop/project/gem5-20.1&#10;\drivers&#61;&#10;\egid&#61;100&#10;\env&#61;&#10;\errout&#61;cerr&#10;\euid&#61;100&#10;\eventq_index&#61;0&#10;\executable&#61;&#10;\gid&#61;100&#10;\input&#61;cin&#10;\kvmInSE&#61;false&#10;\maxStackSize&#61;67108864&#10;\output&#61;cout&#10;\pgid&#61;100&#10;\pid&#61;100&#10;\ppid&#61;0&#10;\release&#61;5.1.0&#10;\simpoint&#61;0&#10;\system&#61;system&#10;\uid&#61;100&#10;\useArchPT&#61;false";
+}
+
+subgraph cluster_system_cpu0_isa {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="isa \n: X86ISA";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu1 {
+color="#000000";
+fillcolor="#bbc6d9";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cpu1 \n: TimingSimpleCPU";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="branchPred&#61;Null&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cpu_id&#61;-1&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\dtb&#61;system.cpu1.dtb&#10;\eventq_index&#61;0&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\interrupts&#61;system.cpu1.interrupts&#10;\isa&#61;system.cpu1.isa&#10;\itb&#61;system.cpu1.itb&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;0&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.cpu1.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\simpoint_start_insts&#61;&#10;\socket_id&#61;0&#10;\switched_out&#61;false&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.cpu1.tracer&#10;\wait_for_remote_gdb&#61;false&#10;\workload&#61;system.cpu1.workload";
+system_cpu1_icache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=icache_port, shape=Mrecord, style="rounded, filled"];
+system_cpu1_dcache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=dcache_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu1_dtb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dtb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu1.dtb.walker";
+subgraph cluster_system_cpu1_dtb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu1.dtb.walker.power_state&#10;\system&#61;system";
+system_cpu1_dtb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu1_dtb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu1_itb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="itb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu1.itb.walker";
+subgraph cluster_system_cpu1_itb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu1.itb.walker.power_state&#10;\system&#61;system";
+system_cpu1_itb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu1_itb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu1_tracer {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="tracer \n: ExeTracer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+subgraph cluster_system_cpu1_power_state {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;ON CLK_GATED OFF";
+}
+
+subgraph cluster_system_cpu1_interrupts {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="interrupts \n: X86LocalApic";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu1.interrupts.clk_domain&#10;\eventq_index&#61;0&#10;\int_latency&#61;1000&#10;\pio_latency&#61;100000&#10;\system&#61;system";
+system_cpu1_interrupts_int_requestor [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_requestor, shape=Mrecord, style="rounded, filled"];
+system_cpu1_interrupts_int_responder [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_responder, shape=Mrecord, style="rounded, filled"];
+system_cpu1_interrupts_pio [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=pio, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu1_interrupts_clk_domain {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="clk_domain \n: DerivedClockDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_divider&#61;16&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu1_workload {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="workload \n: Process";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="cmd&#61;../benchmarks/susan-parallel/susan&#10;\cwd&#61;/home/gem5/Desktop/project/gem5-20.1&#10;\drivers&#61;&#10;\egid&#61;100&#10;\env&#61;&#10;\errout&#61;cerr&#10;\euid&#61;100&#10;\eventq_index&#61;0&#10;\executable&#61;&#10;\gid&#61;100&#10;\input&#61;cin&#10;\kvmInSE&#61;false&#10;\maxStackSize&#61;67108864&#10;\output&#61;cout&#10;\pgid&#61;100&#10;\pid&#61;101&#10;\ppid&#61;0&#10;\release&#61;5.1.0&#10;\simpoint&#61;0&#10;\system&#61;system&#10;\uid&#61;100&#10;\useArchPT&#61;false";
+}
+
+subgraph cluster_system_cpu1_isa {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="isa \n: X86ISA";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu2 {
+color="#000000";
+fillcolor="#bbc6d9";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cpu2 \n: TimingSimpleCPU";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="branchPred&#61;Null&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cpu_id&#61;-1&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\dtb&#61;system.cpu2.dtb&#10;\eventq_index&#61;0&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\interrupts&#61;system.cpu2.interrupts&#10;\isa&#61;system.cpu2.isa&#10;\itb&#61;system.cpu2.itb&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;0&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.cpu2.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\simpoint_start_insts&#61;&#10;\socket_id&#61;0&#10;\switched_out&#61;false&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.cpu2.tracer&#10;\wait_for_remote_gdb&#61;false&#10;\workload&#61;system.cpu1.workload";
+system_cpu2_icache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=icache_port, shape=Mrecord, style="rounded, filled"];
+system_cpu2_dcache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=dcache_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu2_dtb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dtb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu2.dtb.walker";
+subgraph cluster_system_cpu2_dtb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu2.dtb.walker.power_state&#10;\system&#61;system";
+system_cpu2_dtb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu2_dtb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu2_itb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="itb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu2.itb.walker";
+subgraph cluster_system_cpu2_itb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu2.itb.walker.power_state&#10;\system&#61;system";
+system_cpu2_itb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu2_itb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu2_tracer {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="tracer \n: ExeTracer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+subgraph cluster_system_cpu2_power_state {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;ON CLK_GATED OFF";
+}
+
+subgraph cluster_system_cpu2_interrupts {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="interrupts \n: X86LocalApic";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu2.interrupts.clk_domain&#10;\eventq_index&#61;0&#10;\int_latency&#61;1000&#10;\pio_latency&#61;100000&#10;\system&#61;system";
+system_cpu2_interrupts_int_requestor [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_requestor, shape=Mrecord, style="rounded, filled"];
+system_cpu2_interrupts_int_responder [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_responder, shape=Mrecord, style="rounded, filled"];
+system_cpu2_interrupts_pio [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=pio, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu2_interrupts_clk_domain {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="clk_domain \n: DerivedClockDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_divider&#61;16&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu2_isa {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="isa \n: X86ISA";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu3 {
+color="#000000";
+fillcolor="#bbc6d9";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="cpu3 \n: TimingSimpleCPU";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="branchPred&#61;Null&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cpu_id&#61;-1&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\dtb&#61;system.cpu3.dtb&#10;\eventq_index&#61;0&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\interrupts&#61;system.cpu3.interrupts&#10;\isa&#61;system.cpu3.isa&#10;\itb&#61;system.cpu3.itb&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;0&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.cpu3.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\simpoint_start_insts&#61;&#10;\socket_id&#61;0&#10;\switched_out&#61;false&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.cpu3.tracer&#10;\wait_for_remote_gdb&#61;false&#10;\workload&#61;system.cpu1.workload";
+system_cpu3_icache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=icache_port, shape=Mrecord, style="rounded, filled"];
+system_cpu3_dcache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=dcache_port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu3_dtb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="dtb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu3.dtb.walker";
+subgraph cluster_system_cpu3_dtb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu3.dtb.walker.power_state&#10;\system&#61;system";
+system_cpu3_dtb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu3_dtb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu3_itb {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="itb \n: X86TLB";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\size&#61;64&#10;\system&#61;system&#10;\walker&#61;system.cpu3.itb.walker";
+subgraph cluster_system_cpu3_itb_walker {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="walker \n: X86PagetableWalker";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\num_squash_per_cycle&#61;4&#10;\power_model&#61;&#10;\power_state&#61;system.cpu3.itb.walker.power_state&#10;\system&#61;system";
+system_cpu3_itb_walker_port [color="#000000", fillcolor="#7f7c77", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu3_itb_walker_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+}
+
+subgraph cluster_system_cpu3_tracer {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="tracer \n: ExeTracer";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+subgraph cluster_system_cpu3_power_state {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;ON CLK_GATED OFF";
+}
+
+subgraph cluster_system_cpu3_interrupts {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="interrupts \n: X86LocalApic";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu3.interrupts.clk_domain&#10;\eventq_index&#61;0&#10;\int_latency&#61;1000&#10;\pio_latency&#61;100000&#10;\system&#61;system";
+system_cpu3_interrupts_int_requestor [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_requestor, shape=Mrecord, style="rounded, filled"];
+system_cpu3_interrupts_int_responder [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=int_responder, shape=Mrecord, style="rounded, filled"];
+system_cpu3_interrupts_pio [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=pio, shape=Mrecord, style="rounded, filled"];
+subgraph cluster_system_cpu3_interrupts_clk_domain {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="clk_domain \n: DerivedClockDomain";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="clk_divider&#61;16&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0";
+}
+
+}
+
+subgraph cluster_system_cpu3_isa {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="isa \n: X86ISA";
+shape=Mrecord;
+style="rounded, filled";
+tooltip="eventq_index&#61;0";
+}
+
+}
+
+}
+
+}
+
+system_system_port -> system_noc_network_sys_port_proxy_in_ports  [dir=forward];
+system_noc_network_socket_controllers0_requestFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers0_responseFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers0_forwardToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers0_responseToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers0_sequencer_in_ports -> system_cpu0_icache_port  [dir=back];
+system_noc_network_socket_controllers0_sequencer_in_ports -> system_cpu0_dcache_port  [dir=back];
+system_noc_network_socket_controllers0_sequencer_in_ports -> system_cpu0_interrupts_int_requestor  [dir=back];
+system_noc_network_socket_controllers0_sequencer_in_ports -> system_cpu0_itb_walker_port  [dir=back];
+system_noc_network_socket_controllers0_sequencer_in_ports -> system_cpu0_dtb_walker_port  [dir=back];
+system_noc_network_socket_controllers0_sequencer_interrupt_out_port -> system_cpu0_interrupts_pio  [dir=forward];
+system_noc_network_socket_controllers0_sequencer_interrupt_out_port -> system_cpu0_interrupts_int_responder  [dir=forward];
+system_noc_network_socket_controllers1_requestFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers1_responseFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers1_forwardToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers1_responseToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers1_sequencer_in_ports -> system_cpu1_icache_port  [dir=back];
+system_noc_network_socket_controllers1_sequencer_in_ports -> system_cpu1_dcache_port  [dir=back];
+system_noc_network_socket_controllers1_sequencer_in_ports -> system_cpu1_interrupts_int_requestor  [dir=back];
+system_noc_network_socket_controllers1_sequencer_in_ports -> system_cpu1_itb_walker_port  [dir=back];
+system_noc_network_socket_controllers1_sequencer_in_ports -> system_cpu1_dtb_walker_port  [dir=back];
+system_noc_network_socket_controllers1_sequencer_interrupt_out_port -> system_cpu1_interrupts_pio  [dir=forward];
+system_noc_network_socket_controllers1_sequencer_interrupt_out_port -> system_cpu1_interrupts_int_responder  [dir=forward];
+system_noc_network_socket_controllers2_requestFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers2_responseFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers2_forwardToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers2_responseToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers2_sequencer_in_ports -> system_cpu2_icache_port  [dir=back];
+system_noc_network_socket_controllers2_sequencer_in_ports -> system_cpu2_dcache_port  [dir=back];
+system_noc_network_socket_controllers2_sequencer_in_ports -> system_cpu2_interrupts_int_requestor  [dir=back];
+system_noc_network_socket_controllers2_sequencer_in_ports -> system_cpu2_itb_walker_port  [dir=back];
+system_noc_network_socket_controllers2_sequencer_in_ports -> system_cpu2_dtb_walker_port  [dir=back];
+system_noc_network_socket_controllers2_sequencer_interrupt_out_port -> system_cpu2_interrupts_pio  [dir=forward];
+system_noc_network_socket_controllers2_sequencer_interrupt_out_port -> system_cpu2_interrupts_int_responder  [dir=forward];
+system_noc_network_socket_controllers3_requestFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers3_responseFromCache_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers3_forwardToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers3_responseToCache_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers3_sequencer_in_ports -> system_cpu3_icache_port  [dir=back];
+system_noc_network_socket_controllers3_sequencer_in_ports -> system_cpu3_dcache_port  [dir=back];
+system_noc_network_socket_controllers3_sequencer_in_ports -> system_cpu3_interrupts_int_requestor  [dir=back];
+system_noc_network_socket_controllers3_sequencer_in_ports -> system_cpu3_itb_walker_port  [dir=back];
+system_noc_network_socket_controllers3_sequencer_in_ports -> system_cpu3_dtb_walker_port  [dir=back];
+system_noc_network_socket_controllers3_sequencer_interrupt_out_port -> system_cpu3_interrupts_pio  [dir=forward];
+system_noc_network_socket_controllers3_sequencer_interrupt_out_port -> system_cpu3_interrupts_int_responder  [dir=forward];
+system_noc_network_socket_controllers4_memory_out_port -> system_noc_network_socket_controllers4_mem_ctrl_port  [dir=forward];
+system_noc_network_socket_controllers4_requestToDir_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers4_responseFromDir_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers4_forwardFromDir_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers4_dmaRequestToDir_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers4_dmaResponseFromDir_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers5_memory_out_port -> system_noc_network_socket_controllers5_mem_ctrl_port  [dir=forward];
+system_noc_network_socket_controllers5_requestToDir_in_port -> system_noc_network_network_out_port  [dir=back];
+system_noc_network_socket_controllers5_responseFromDir_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers5_forwardFromDir_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers5_dmaRequestToDir_out_port -> system_noc_network_network_in_port  [dir=forward];
+system_noc_network_socket_controllers5_dmaResponseFromDir_in_port -> system_noc_network_network_out_port  [dir=back];
+}

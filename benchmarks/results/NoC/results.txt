@@ -1,0 +1,210 @@
+BENCHMARK	METRIC	FRAM	MRAM	STTRAM	SRAM	RRAM
+dijkstra-parallel	sim_insts	274517364 (no diff)
+dijkstra-parallel	sim_ops	455214965 (no diff)
+dijkstra-parallel	sim_ticks	295602667000	275496913000	275354804000	275303445000	277221861000
+dijkstra-parallel	system.cpu0.numCycles	281024477	261846829	261711062	261665433	263486260
+dijkstra-parallel	system.cpu0.num_busy_cycles	267165237.290827	248873067.616211	248743363.028157	248703022.320802	250431221.254002
+dijkstra-parallel	system.cpu0.num_idle_cycles	13859239.709173	12973761.383789	12967698.971843	12962410.679198	13055038.745998
+dijkstra-parallel	system.cpu0.num_load_insts	23249232 (no diff)
+dijkstra-parallel	system.cpu0.num_mem_refs	27581143 (no diff)
+dijkstra-parallel	system.cpu0.num_store_insts	4331911 (no diff)
+dijkstra-parallel	system.cpu0.op_class::MemRead	23248110 20.74% 96.13% (no diff)
+dijkstra-parallel	system.cpu0.op_class::MemWrite	4331175 3.86% 100.00% (no diff)
+dijkstra-parallel	system.cpu1.numCycles	295602667	275496913	275354804	275303445	277221861
+dijkstra-parallel	system.cpu1.num_busy_cycles	295105025.999002	275005335.999002	274863274.999002	274811931.999002	276729723.999002
+dijkstra-parallel	system.cpu1.num_idle_cycles	497641.000998	491577.000998	491529.000998	491513.000998	492137.000998
+dijkstra-parallel	system.cpu1.num_load_insts	24465374 (no diff)
+dijkstra-parallel	system.cpu1.num_mem_refs	29009374 (no diff)
+dijkstra-parallel	system.cpu1.num_store_insts	4544000 (no diff)
+dijkstra-parallel	system.cpu1.op_class::MemRead	24465109 20.76% 96.14% (no diff)
+dijkstra-parallel	system.cpu1.op_class::MemWrite	4543924 3.86% 100.00% (no diff)
+dijkstra-parallel	system.cpu2.numCycles	283996204	264602137	264468450	264425622	266268502
+dijkstra-parallel	system.cpu2.num_busy_cycles	272366767.169574	253665482.768265	253539815.020271	253504927.640421	255274645.955076
+dijkstra-parallel	system.cpu2.num_idle_cycles	11629436.830426	10936654.231735	10928634.979729	10920694.359579	10993856.044924
+dijkstra-parallel	system.cpu2.num_load_insts	23455400 (no diff)
+dijkstra-parallel	system.cpu2.num_mem_refs	27812296 (no diff)
+dijkstra-parallel	system.cpu2.num_store_insts	4356896 (no diff)
+dijkstra-parallel	system.cpu2.op_class::MemRead	23455135 20.76% 96.14% (no diff)
+dijkstra-parallel	system.cpu2.op_class::MemWrite	4356820 3.86% 100.00% (no diff)
+dijkstra-parallel	system.cpu3.numCycles	281959198	262591109	262467380	262422538	264250694
+dijkstra-parallel	system.cpu3.num_busy_cycles	268469929.052256	249820497.837761	249713763.941317	249674949.370070	251416497.990673
+dijkstra-parallel	system.cpu3.num_idle_cycles	13489268.947744	12770611.162239	12753616.058683	12747588.629930	12834196.009327
+dijkstra-parallel	system.cpu3.num_load_insts	23318227 (no diff)
+dijkstra-parallel	system.cpu3.num_mem_refs	27649713 (no diff)
+dijkstra-parallel	system.cpu3.num_store_insts	4331486 (no diff)
+dijkstra-parallel	system.cpu3.op_class::MemRead	23317962 20.76% 96.14% (no diff)
+dijkstra-parallel	system.cpu3.op_class::MemWrite	4331410 3.86% 100.00% (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers0.cacheMemory.demand_misses	112025 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers2.cacheMemory.demand_misses	117227 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers4.cacheMemory.demand_misses	112388 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.readReqs	63927 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.writeReqs	63144 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytes_read::total	4091328 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytes_written::total	4041216 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.num_reads::total	63927 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.num_writes::total	63144 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.avgMemAccLat	18754.55	18757.93	18766.17	18734.94	18751.91
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytesRead	3866624	3867264	3868480	3866944	3866944
+dijkstra-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytesWritten	4004096	4002048	4002624	4001856	4002624
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.readReqs	389277 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.writeReqs	389036 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytes_read::total	24913728 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytes_written::total	24898304 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.num_reads::total	389277 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.num_writes::total	389036 (no diff)
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.avgMemAccLat	228073.36	22843.87	21411.79	21066.70	40441.34
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytesRead	24336000	24340032	24339264	24337792	24340864
+dijkstra-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytesWritten	24892224	24892096	24892160	24892160	24892352
+mixed-dijkstra-susan-parallel	sim_insts	328319668	328319690	328319690	328319690	328319690
+mixed-dijkstra-susan-parallel	sim_ops	547643155	547643199	547643199	547643199	547643199
+mixed-dijkstra-susan-parallel	sim_ticks	1108204673000	1060444765000	1060093922000	1059976216000	1064680953000
+mixed-dijkstra-susan-parallel	system.cpu0.numCycles	1108204673	1060444765	1060093922	1059976216	1064680953
+mixed-dijkstra-susan-parallel	system.cpu0.num_busy_cycles	1108204672.999000	1060444764.999000	1060093921.999000	1059976215.999000	1064680952.999000
+mixed-dijkstra-susan-parallel	system.cpu0.num_idle_cycles	0.001000 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu0.num_load_insts	94426196 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu0.num_mem_refs	111950063 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu0.num_store_insts	17523867 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu0.op_class::MemRead	94426142 20.77% 96.15% (no diff)
+mixed-dijkstra-susan-parallel	system.cpu0.op_class::MemWrite	17523400 3.85% 100.00% (no diff)
+mixed-dijkstra-susan-parallel	system.cpu1.numCycles	359222194	372283788	370872994	373047396	365602346
+mixed-dijkstra-susan-parallel	system.cpu1.num_busy_cycles	71153.700870	71402.869947	71211.451636	71497.545412	70380.826688
+mixed-dijkstra-susan-parallel	system.cpu1.num_idle_cycles	359151040.299130	372212385.130053	370801782.548364	372975898.454588	365531965.173312
+mixed-dijkstra-susan-parallel	system.cpu1.num_load_insts	4986 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu1.num_mem_refs	9561 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu1.num_store_insts	4575 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu1.op_class::MemRead	4755 11.07% 88.82% (no diff)
+mixed-dijkstra-susan-parallel	system.cpu1.op_class::MemWrite	3507 8.16% 96.98% (no diff)
+mixed-dijkstra-susan-parallel	system.cpu2.numCycles	356969454	370040491	368629744	370804375	363358427
+mixed-dijkstra-susan-parallel	system.cpu2.num_busy_cycles	111653831.380789	125521555.780378	124593776.160537	126103567.252005	120483559.058268
+mixed-dijkstra-susan-parallel	system.cpu2.num_idle_cycles	245315622.619211	244518935.219622	244035967.839463	244700807.747995	242874867.941732
+mixed-dijkstra-susan-parallel	system.cpu2.num_load_insts	12611885 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu2.num_mem_refs	18445651 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu2.num_store_insts	5833766 (no diff)
+mixed-dijkstra-susan-parallel	system.cpu2.op_class::MemRead	12604009 29.29% 86.42% (no diff)
+mixed-dijkstra-susan-parallel	system.cpu2.op_class::MemWrite	5831466 13.55% 99.98% (no diff)
+mixed-dijkstra-susan-parallel	system.cpu3.numCycles	359182363	372245149	370834152	373008712	365563376
+mixed-dijkstra-susan-parallel	system.cpu3.num_busy_cycles	116358640.155365	130612124.311951	129666561.249272	131206667.466265	125462666.011641
+mixed-dijkstra-susan-parallel	system.cpu3.num_idle_cycles	242823722.844635	241633024.688049	241167590.750728	241802044.533735	240100709.988360
+mixed-dijkstra-susan-parallel	system.cpu3.num_load_insts	13423076	13423081	13423081	13423081	13423081
+mixed-dijkstra-susan-parallel	system.cpu3.num_mem_refs	19701587	19701595	19701595	19701595	19701595
+mixed-dijkstra-susan-parallel	system.cpu3.num_store_insts	6278511	6278514	6278514	6278514	6278514
+mixed-dijkstra-susan-parallel	system.cpu3.op_class::MemRead	13414745 26.88% 87.40%	13414750 26.88% 87.40%	13414750 26.88% 87.40%	13414750 26.88% 87.40%	13414750 26.88% 87.40%
+mixed-dijkstra-susan-parallel	system.cpu3.op_class::MemWrite	6275896 12.58% 99.98%	6275899 12.58% 99.98%	6275899 12.58% 99.98%	6275899 12.58% 99.98%	6275899 12.58% 99.98%
+mixed-dijkstra-susan-parallel	system.noc_network.socket_controllers0.cacheMemory.demand_misses	440394 (no diff)
+mixed-dijkstra-susan-parallel	system.noc_network.socket_controllers1.cacheMemory.demand_misses	1553	1550	1550	1550	1550
+mixed-dijkstra-susan-parallel	system.noc_network.socket_controllers2.cacheMemory.demand_misses	4493111	4735741	4709663	4750013	4611890
+mixed-dijkstra-susan-parallel	system.noc_network.socket_controllers3.cacheMemory.demand_misses	4501364	4744012	4717934	4758284	4620161
+susan-parallel	sim_insts	54109038	54109121	54109047	54109061	54109061
+susan-parallel	sim_ops	93017524	93017704	93017530	93017568	93017568
+susan-parallel	sim_ticks	591358418000	659314208000	589899727000	592034529000	659194430000
+susan-parallel	system.cpu0.numCycles	591358418	659314208	589899727	592034529	659194430
+susan-parallel	system.cpu0.num_busy_cycles	233054.000000	231427.000000	219016.000000	219290.000000	232368.000000
+susan-parallel	system.cpu0.num_idle_cycles	591125364.000000	659082781.000000	589680711.000000	591815239.000000	658962062.000000
+susan-parallel	system.cpu0.num_load_insts	5800	5807	5793	5800	5800
+susan-parallel	system.cpu0.num_mem_refs	11179	11190	11168	11179	11179
+susan-parallel	system.cpu0.num_store_insts	5379	5383	5375	5379	5379
+susan-parallel	system.cpu0.op_class::MemRead	5514 11.09% 88.60%	5521 11.09% 88.61%	5507 11.10% 88.59%	5514 11.09% 88.60%	5514 11.09% 88.60%
+susan-parallel	system.cpu0.op_class::MemWrite	4065 8.18% 96.78%	4069 8.17% 96.79%	4061 8.18% 96.78%	4065 8.18% 96.78%	4065 8.18% 96.78%
+susan-parallel	system.cpu1.numCycles	587015511	655272367	585491983	587923854	654598085
+susan-parallel	system.cpu1.num_busy_cycles	572310531.601238	640926198.814381	570765177.424709	573510029.289554	639725131.363930
+susan-parallel	system.cpu1.num_idle_cycles	14704979.398762	14346168.185619	14726805.575291	14413824.710446	14872953.636070
+susan-parallel	system.cpu1.num_load_insts	8320124	8320121	8320121	8320126	8320116
+susan-parallel	system.cpu1.num_mem_refs	12168922	12168908	12168908	12168926	12168900
+susan-parallel	system.cpu1.num_store_insts	3848798	3848787	3848787	3848800	3848784
+susan-parallel	system.cpu1.op_class::MemRead	8314903 29.28% 86.43%	8314900 29.28% 86.43%	8314900 29.28% 86.43%	8314905 29.28% 86.43%	8314895 29.28% 86.43%
+susan-parallel	system.cpu1.op_class::MemWrite	3847171 13.55% 99.98%	3847162 13.55% 99.98%	3847162 13.55% 99.98%	3847173 13.55% 99.98%	3847159 13.55% 99.98%
+susan-parallel	system.cpu2.numCycles	583691997	655998731	582623153	584367448	656109833
+susan-parallel	system.cpu2.num_busy_cycles	575901371.876444	642399466.911404	565197374.334480	566556689.637420	642739419.889552
+susan-parallel	system.cpu2.num_idle_cycles	7790625.123556	13599264.088596	17425778.665520	17810758.362580	13370413.110448
+susan-parallel	system.cpu2.num_load_insts	8858362	8320088	8320088	8320083	8320093
+susan-parallel	system.cpu2.num_mem_refs	13027526	12168880	12168880	12168862	12168888
+susan-parallel	system.cpu2.num_store_insts	4169164	3848792	3848792	3848779	3848795
+susan-parallel	system.cpu2.op_class::MemRead	8852967 25.78% 87.84%	8314883 29.28% 86.43%	8314883 29.28% 86.43%	8314878 29.28% 86.43%	8314888 29.28% 86.43%
+susan-parallel	system.cpu2.op_class::MemWrite	4167277 12.14% 99.98%	3847164 13.55% 99.98%	3847164 13.55% 99.98%	3847153 13.55% 99.98%	3847167 13.55% 99.98%
+susan-parallel	system.cpu3.numCycles	591318792	659273503	589861467	591996325	659153785
+susan-parallel	system.cpu3.num_busy_cycles	580894247.578198	659038960.480173	589632285.864305	591772145.466244	658915835.671525
+susan-parallel	system.cpu3.num_idle_cycles	10424544.421802	234542.519827	229181.135695	224179.533756	237949.328475
+susan-parallel	system.cpu3.num_load_insts	8860160	9398448	9398447	9398442	9398442
+susan-parallel	system.cpu3.num_mem_refs	12957191	13815869	13815867	13815859	13815859
+susan-parallel	system.cpu3.num_store_insts	4097031	4417421	4417420	4417417	4417417
+susan-parallel	system.cpu3.op_class::MemRead	8854895 29.29% 86.43%	9392993 25.96% 87.77%	9392992 25.96% 87.77%	9392987 25.96% 87.77%	9392987 25.96% 87.77%
+susan-parallel	system.cpu3.op_class::MemWrite	4095352 13.55% 99.98%	4415481 12.20% 99.98%	4415480 12.20% 99.98%	4415477 12.20% 99.98%	4415477 12.20% 99.98%
+susan-parallel	system.noc_network.socket_controllers0.cacheMemory.demand_misses	1707	1708	1700	1706	1706
+susan-parallel	system.noc_network.socket_controllers2.cacheMemory.demand_misses	7847282	8933578	7825233	7864116	8936652
+susan-parallel	system.noc_network.socket_controllers4.cacheMemory.demand_misses	7743625	7722775	7747236
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.readReqs	10568	10560	10581
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.writeReqs	10064	10060	10080
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytes_read::total	676352	675840	677184
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytes_written::total	644096	643840	645120
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.num_reads::total	10568	10560	10581
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.num_writes::total	10064	10060	10080
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.avgMemAccLat	21013.18	20984.88	21020.83
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytesRead	619392	618368	619328
+susan-parallel	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytesWritten	622400	622208	622912
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.readReqs	710	726	728
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.writeReqs	579	596	598
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytes_read::total	45440	46464	46592
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytes_written::total	37056	38144	38272
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.num_reads::total	710	726	728
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.num_writes::total	579	596	598
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.avgMemAccLat	206031.78	18427.37	18076.44
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytesRead	36992	38592	38208
+susan-parallel	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytesWritten	31104	31104	32256
+susan-parallel	system.noc_network.socket_controllers1.cacheMemory.demand_misses	8884634	8873188
+susan-parallel	system.noc_network.socket_controllers3.cacheMemory.demand_misses	9046105	9045880
+fft-4x	sim_insts	12376256 (no diff)
+fft-4x	sim_ops	22757068 (no diff)
+fft-4x	sim_ticks	13538062000	13416095000	13414428000	13414960000	13427700000
+fft-4x	system.cpu0.numCycles	13264494	13149209	13143988	13143902	13152799
+fft-4x	system.cpu0.num_busy_cycles	12996454.076148	12887632.154721	12879000.172893	12878320.902390	12883525.959138
+fft-4x	system.cpu0.num_idle_cycles	268039.923852	261576.845279	264987.827107	265581.097610	269273.040862
+fft-4x	system.cpu0.num_load_insts	807081 (no diff)
+fft-4x	system.cpu0.num_mem_refs	1256359 (no diff)
+fft-4x	system.cpu0.num_store_insts	449278 (no diff)
+fft-4x	system.cpu0.op_class::MemRead	709850 12.48% 90.39% (no diff)
+fft-4x	system.cpu0.op_class::MemWrite	393582 6.92% 97.31% (no diff)
+fft-4x	system.cpu1.numCycles	13400949	13293955	13286931	13287157	13296395
+fft-4x	system.cpu1.num_busy_cycles	13265224.674502	13172926.960405	13160645.790160	13160571.565587	13166373.986823
+fft-4x	system.cpu1.num_idle_cycles	135724.325498	121028.039595	126285.209840	126585.434413	130021.013177
+fft-4x	system.cpu1.num_load_insts	807081 (no diff)
+fft-4x	system.cpu1.num_mem_refs	1256359 (no diff)
+fft-4x	system.cpu1.num_store_insts	449278 (no diff)
+fft-4x	system.cpu1.op_class::MemRead	709850 12.48% 90.39% (no diff)
+fft-4x	system.cpu1.op_class::MemWrite	393582 6.92% 97.31% (no diff)
+fft-4x	system.cpu2.numCycles	13538062	13416095	13414428	13414960	13427700
+fft-4x	system.cpu2.num_busy_cycles	13538061.999000	13416094.999000	13414427.999000	13414959.999000	13427699.999000
+fft-4x	system.cpu2.num_idle_cycles	0.001000 (no diff)
+fft-4x	system.cpu2.num_load_insts	807081 (no diff)
+fft-4x	system.cpu2.num_mem_refs	1256359 (no diff)
+fft-4x	system.cpu2.num_store_insts	449278 (no diff)
+fft-4x	system.cpu2.op_class::MemRead	709850 12.48% 90.39% (no diff)
+fft-4x	system.cpu2.op_class::MemWrite	393582 6.92% 97.31% (no diff)
+fft-4x	system.cpu3.numCycles	13407286	13287265	13291997	13279457	13303500
+fft-4x	system.cpu3.num_busy_cycles	13277773.278961	13159672.107798	13170683.404081	13145322.699561	13180448.791440
+fft-4x	system.cpu3.num_idle_cycles	129512.721039	127592.892202	121313.595919	134134.300439	123051.208560
+fft-4x	system.cpu3.num_load_insts	807081 (no diff)
+fft-4x	system.cpu3.num_mem_refs	1256359 (no diff)
+fft-4x	system.cpu3.num_store_insts	449278 (no diff)
+fft-4x	system.cpu3.op_class::MemRead	709850 12.48% 90.39% (no diff)
+fft-4x	system.cpu3.op_class::MemWrite	393582 6.92% 97.31% (no diff)
+fft-4x	system.noc_network.socket_controllers0.cacheMemory.demand_misses	34876 (no diff)
+fft-4x	system.noc_network.socket_controllers2.cacheMemory.demand_misses	34876 (no diff)
+fft-4x	system.noc_network.socket_controllers4.cacheMemory.demand_misses	34876 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.readReqs	134368 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.writeReqs	133364 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytes_read::total	8599552 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytes_written::total	8535296 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.num_reads::total	134368 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.num_writes::total	133364 (no diff)
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.avgMemAccLat	22071.54	22143.22	22163.89	22079.48	22055.80
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytesRead	3948416	3980352	3967680	3957440	3971712
+fft-4x	system.noc_network.socket_controllers1.mem_ctrl.nvm.bytesWritten	8503232	8503680	8502144	8503872	8503296
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.readReqs	5136 (no diff)
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.writeReqs	5116 (no diff)
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytes_read::total	328704 (no diff)
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytes_written::total	327424 (no diff)
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.num_reads::total	5136 (no diff)
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.num_writes::total	5116 (no diff)
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.avgMemAccLat	386726.28	22621.16	19692.75	19263.87	55262.82
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytesRead	85504	84736	85248	85120	85120
+fft-4x	system.noc_network.socket_controllers3.mem_ctrl.nvm.bytesWritten	96320	96128	95616	96192	95360

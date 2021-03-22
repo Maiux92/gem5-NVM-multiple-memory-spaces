@@ -1,0 +1,28 @@
+graph G {
+rankdir=LR;
+"system.noc_network.network.routers0" [color="#000000", fillcolor="#cce6fc", fontcolor="#000000", fontname=Arial, fontsize=14, label="R 0", shape=Mrecord, style="rounded, filled"];
+"system.noc_network.network.routers1" [color="#000000", fillcolor="#cce6fc", fontcolor="#000000", fontname=Arial, fontsize=14, label="R 1", shape=Mrecord, style="rounded, filled"];
+"system.noc_network.network.routers2" [color="#000000", fillcolor="#cce6fc", fontcolor="#000000", fontname=Arial, fontsize=14, label="R 2", shape=Mrecord, style="rounded, filled"];
+"system.noc_network.network.routers3" [color="#000000", fillcolor="#cce6fc", fontcolor="#000000", fontname=Arial, fontsize=14, label="R 3", shape=Mrecord, style="rounded, filled"];
+"system.noc_network.network.routers4" [color="#000000", fillcolor="#cce6fc", fontcolor="#000000", fontname=Arial, fontsize=14, label="R 4", shape=Mrecord, style="rounded, filled"];
+"system.noc_network.network.routers5" [color="#000000", fillcolor="#cce6fc", fontcolor="#000000", fontname=Arial, fontsize=14, label="R 5", shape=Mrecord, style="rounded, filled"];
+"system.noc_network.network.routers0" -- "system.noc_network.network.routers1";
+"system.noc_network.network.routers2" -- "system.noc_network.network.routers3";
+"system.noc_network.network.routers4" -- "system.noc_network.network.routers5";
+"system.noc_network.network.routers0" -- "system.noc_network.network.routers2";
+"system.noc_network.network.routers2" -- "system.noc_network.network.routers4";
+"system.noc_network.network.routers1" -- "system.noc_network.network.routers3";
+"system.noc_network.network.routers3" -- "system.noc_network.network.routers5";
+"system.noc_network.socket_controllers0" [color="#000000", fillcolor="#e5bcd0", fontcolor="#000000", fontname=Arial, fontsize=14, label=socket_controllers0, shape=Mrecord, style="rounded, filled"];
+"system.noc_network.socket_controllers0" -- "system.noc_network.network.routers0";
+"system.noc_network.socket_controllers1" [color="#000000", fillcolor="#e5bcd0", fontcolor="#000000", fontname=Arial, fontsize=14, label=socket_controllers1, shape=Mrecord, style="rounded, filled"];
+"system.noc_network.socket_controllers1" -- "system.noc_network.network.routers1";
+"system.noc_network.socket_controllers2" [color="#000000", fillcolor="#e5bcd0", fontcolor="#000000", fontname=Arial, fontsize=14, label=socket_controllers2, shape=Mrecord, style="rounded, filled"];
+"system.noc_network.socket_controllers2" -- "system.noc_network.network.routers2";
+"system.noc_network.socket_controllers3" [color="#000000", fillcolor="#e5bcd0", fontcolor="#000000", fontname=Arial, fontsize=14, label=socket_controllers3, shape=Mrecord, style="rounded, filled"];
+"system.noc_network.socket_controllers3" -- "system.noc_network.network.routers3";
+"system.noc_network.socket_controllers4" [color="#000000", fillcolor="#e5bcd0", fontcolor="#000000", fontname=Arial, fontsize=14, label=socket_controllers4, shape=Mrecord, style="rounded, filled"];
+"system.noc_network.socket_controllers4" -- "system.noc_network.network.routers4";
+"system.noc_network.socket_controllers5" [color="#000000", fillcolor="#e5bcd0", fontcolor="#000000", fontname=Arial, fontsize=14, label=socket_controllers5, shape=Mrecord, style="rounded, filled"];
+"system.noc_network.socket_controllers5" -- "system.noc_network.network.routers5";
+}
