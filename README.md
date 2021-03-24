@@ -1,7 +1,7 @@
 # gem5 extension for supporting separate accesses to multiple (non-volatile) memory spaces
 
 This is the final project for the course "[Advances in System-on-Chip Design](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=721652&polij_device_category=DESKTOP&__pj0=0&__pj1=282bb4b139c5a8068d7956b3653d7bcb)" taught by of Prof. [Pilato](http://pilato.faculty.polimi.it) to PhD students at Politecnico di Milano (Italy).
-The final project presentation is available [here](Presentation.pttx).
+The final project presentation is available [here](Presentation.pptx).
 
 The project was done in collaboration with [Simone Salgaro]().
 
